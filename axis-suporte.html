@@ -6,294 +6,59 @@
 <title>Suporte — Axis</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Syne:wght@700;800&display=swap');
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg: #0A0712;
-    --surface: #110D22;
-    --surface-2: #1A1430;
-    --border: #241B3E;
-    --accent: #7B52E0;
-    --accent-light: #9B7AEE;
-    --accent-dim: rgba(123, 82, 224, 0.12);
-    --accent-glow: rgba(123, 82, 224, 0.25);
-    --text: #EAE4F8;
-    --text-dim: #8B80AA;
-    --text-muted: #4A4268;
-    --radius: 14px;
-    --radius-sm: 8px;
+    --bg: #0A0712; --surface: #110D22; --surface-2: #1A1430;
+    --border: #241B3E; --accent: #7B52E0; --accent-light: #9B7AEE;
+    --accent-dim: rgba(123,82,224,0.12); --accent-glow: rgba(123,82,224,0.25);
+    --text: #EAE4F8; --text-dim: #8B80AA; --text-muted: #4A4268;
+    --radius: 14px; --radius-sm: 8px;
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    min-height: 100dvh;
-  }
-
-  /* Layout */
-  .page {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 0 24px 80px;
-  }
-
-  /* Header */
-  .header {
-    padding: 52px 0 48px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 52px;
-  }
-
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent-light);
-    margin-bottom: 20px;
-  }
-
-  .eyebrow::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 2px;
-    background: var(--accent);
-    border-radius: 2px;
-  }
-
-  .header h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(32px, 7vw, 48px);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-
-  .header h1 em {
-    font-style: normal;
-    color: var(--accent-light);
-  }
-
-  .header p {
-    font-size: 15px;
-    color: var(--text-dim);
-    max-width: 480px;
-    line-height: 1.7;
-  }
-
-  /* AI CTA Block */
-  .ai-block {
-    background: var(--accent-dim);
-    border: 1px solid var(--accent-glow);
-    border-radius: var(--radius);
-    padding: 32px;
-    margin-bottom: 56px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .ai-block::before {
-    content: '';
-    position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 180px;
-    height: 180px;
-    background: radial-gradient(circle, rgba(123,82,224,0.2) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .ai-block-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent-light);
-    margin-bottom: 10px;
-  }
-
-  .ai-block h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 10px;
-    line-height: 1.2;
-  }
-
-  .ai-block p {
-    font-size: 14px;
-    color: var(--text-dim);
-    margin-bottom: 24px;
-    line-height: 1.65;
-  }
-
-  .ai-block p strong {
-    color: var(--text);
-    font-weight: 500;
-  }
-
-  .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--accent);
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 13px 22px;
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    transition: opacity 0.15s, transform 0.1s;
-    cursor: pointer;
-    border: none;
-  }
-
-  .cta-btn:hover { opacity: 0.88; }
-  .cta-btn:active { transform: scale(0.97); }
-
-  .cta-btn svg {
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-  }
-
-  .ai-note {
-    margin-top: 14px;
-    font-size: 12px;
-    color: var(--text-muted);
-  }
-
-  .ai-note a {
-    color: var(--accent-light);
-    text-decoration: none;
-  }
-
-  .ai-note a:hover { text-decoration: underline; }
-
-  /* FAQ Section */
-  .faq-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-  }
-
-  .faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .faq-item {
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    transition: border-color 0.2s;
-  }
-
-  .faq-item.open {
-    border-color: var(--accent-glow);
-    background: var(--surface);
-  }
-
-  .faq-q {
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 18px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    cursor: pointer;
-    text-align: left;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text);
-    transition: color 0.15s;
-  }
-
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; min-height: 100dvh; }
+  .page { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+  .header { padding: 52px 0 48px; border-bottom: 1px solid var(--border); margin-bottom: 52px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 20px; }
+  .eyebrow::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--accent); border-radius: 2px; }
+  .header h1 { font-family: 'Syne', sans-serif; font-size: clamp(32px,7vw,48px); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; color: var(--text); margin-bottom: 16px; }
+  .header h1 em { font-style: normal; color: var(--accent-light); }
+  .header p { font-size: 15px; color: var(--text-dim); max-width: 480px; line-height: 1.7; }
+  .ai-block { background: var(--accent-dim); border: 1px solid var(--accent-glow); border-radius: var(--radius); padding: 32px; margin-bottom: 56px; position: relative; overflow: hidden; }
+  .ai-block::before { content: ''; position: absolute; top: -60px; right: -60px; width: 180px; height: 180px; background: radial-gradient(circle, rgba(123,82,224,0.2) 0%, transparent 70%); pointer-events: none; }
+  .ai-block-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 10px; }
+  .ai-block h2 { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.2; }
+  .ai-block > p { font-size: 14px; color: var(--text-dim); margin-bottom: 16px; line-height: 1.65; }
+  .chat-messages { min-height: 120px; max-height: 320px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; padding-right: 4px; }
+  .chat-messages::-webkit-scrollbar { width: 3px; }
+  .chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  .chat-msg { font-size: 13px; line-height: 1.6; padding: 10px 14px; border-radius: 10px; max-width: 90%; animation: fadeIn 0.2s ease; }
+  .chat-msg.user { background: var(--accent); color: #fff; align-self: flex-end; border-bottom-right-radius: 3px; }
+  .chat-msg.assistant { background: var(--surface-2); border: 1px solid var(--border); color: var(--text); align-self: flex-start; border-bottom-left-radius: 3px; }
+  .chat-msg.typing { background: var(--surface-2); border: 1px solid var(--border); color: var(--text-muted); align-self: flex-start; font-style: italic; }
+  .chat-input-row { display: flex; gap: 8px; align-items: flex-end; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px 10px; transition: border-color 0.2s; }
+  .chat-input-row:focus-within { border-color: var(--accent-glow); }
+  .chat-input-row textarea { flex: 1; background: transparent; border: none; outline: none; resize: none; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text); line-height: 1.5; max-height: 100px; min-height: 20px; }
+  .chat-input-row textarea::placeholder { color: var(--text-muted); }
+  .send-btn { flex-shrink: 0; width: 30px; height: 30px; background: var(--accent); border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: opacity 0.15s; color: white; }
+  .send-btn:hover { opacity: 0.85; }
+  .send-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .send-btn svg { width: 13px; height: 13px; }
+  .faq-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+  .faq-list { display: flex; flex-direction: column; gap: 4px; }
+  .faq-item { border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; transition: border-color 0.2s; }
+  .faq-item.open { border-color: var(--accent-glow); background: var(--surface); }
+  .faq-q { width: 100%; background: none; border: none; padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; text-align: left; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: var(--text); transition: color 0.15s; }
   .faq-q:hover { color: var(--accent-light); }
-
-  .faq-icon {
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s, border-color 0.2s, background 0.2s;
-  }
-
-  .faq-item.open .faq-icon {
-    transform: rotate(45deg);
-    border-color: var(--accent);
-    background: var(--accent-dim);
-  }
-
-  .faq-icon svg {
-    width: 10px;
-    height: 10px;
-    stroke: var(--text-dim);
-  }
-
+  .faq-icon { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; transition: transform 0.2s, border-color 0.2s, background 0.2s; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); border-color: var(--accent); background: var(--accent-dim); }
+  .faq-icon svg { width: 10px; height: 10px; stroke: var(--text-dim); }
   .faq-item.open .faq-icon svg { stroke: var(--accent-light); }
-
-  .faq-a {
-    display: none;
-    padding: 0 20px 18px;
-    font-size: 14px;
-    color: var(--text-dim);
-    line-height: 1.7;
-  }
-
-  .faq-a code {
-    font-family: 'Inter', monospace;
-    font-size: 12px;
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    padding: 2px 7px;
-    border-radius: 4px;
-    color: var(--accent-light);
-  }
-
+  .faq-a { display: none; padding: 0 20px 18px; font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+  .faq-a code { font-family: 'Inter', monospace; font-size: 12px; background: var(--surface-2); border: 1px solid var(--border); padding: 2px 7px; border-radius: 4px; color: var(--accent-light); }
   .faq-item.open .faq-a { display: block; }
-
-  /* Divider */
-  .divider {
-    height: 1px;
-    background: var(--border);
-    margin: 52px 0;
-  }
-
-  /* Footer */
-  .footer {
-    font-size: 12px;
-    color: var(--text-muted);
-    text-align: center;
-  }
-
+  .divider { height: 1px; background: var(--border); margin: 52px 0; }
+  .footer { font-size: 12px; color: var(--text-muted); text-align: center; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
   @media (max-width: 600px) {
     .page { padding: 0 16px 60px; }
     .header { padding: 36px 0 36px; margin-bottom: 36px; }
@@ -303,172 +68,150 @@
 </head>
 <body>
 <div class="page">
-
   <header class="header">
     <div class="eyebrow">Axis · Amplio</div>
     <h1>Travou na<br><em>implementação?</em></h1>
     <p>Aqui você encontra respostas para as dúvidas mais comuns — e se não achar, tem IA pra te ajudar em tempo real.</p>
   </header>
 
-  <!-- AI CTA -->
   <div class="ai-block">
     <div class="ai-block-label">Assistente de IA</div>
     <h2>Tire sua dúvida agora</h2>
-    <p>
-      O Claude já sabe o que é o Axis, como a estrutura funciona e como cada Space se encaixa no seu tipo de negócio.
-      Clica no botão abaixo, cria uma conta gratuita se ainda não tiver, e pergunta o que quiser.
-      <strong>Sem precisar explicar o contexto — ele já sabe.</strong>
-    </p>
-    <button class="cta-btn" id="openClaude">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-      </svg>
-      Abrir assistente
-    </button>
-    <p class="ai-note">Usa o Claude da Anthropic. <a href="https://claude.ai" target="_blank">Crie sua conta gratuita aqui</a> se ainda não tiver.</p>
+    <p>Já sei o que é o Axis e como a estrutura funciona. Pergunta o que precisar.</p>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input-row">
+      <textarea id="chatInput" placeholder="Digite sua dúvida..." rows="1"></textarea>
+      <button class="send-btn" id="sendBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
   </div>
 
-  <!-- FAQ -->
   <p class="faq-title">Dúvidas frequentes</p>
   <div class="faq-list" id="faqList">
-
     <div class="faq-item">
-      <button class="faq-q">
-        Como faço pra usar os templates?
-        <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
-      </button>
-      <div class="faq-a">
-        Você recebe um link do template diretamente do ClickUp. Basta abrir esse link com o ClickUp já logado no seu browser — a plataforma vai abrir automaticamente a tela de importação. Confirma e o Space aparece na sua conta com toda a estrutura pronta.
-      </div>
+      <button class="faq-q">Como faço pra usar os templates?<span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span></button>
+      <div class="faq-a">Você recebe um link do template diretamente do ClickUp. Basta abrir esse link com o ClickUp já logado no seu browser — a plataforma abre automaticamente a tela de importação. Confirma e o Space aparece na sua conta com toda a estrutura pronta.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-q">
-        Preciso de algum plano específico no ClickUp?
-        <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
-      </button>
-      <div class="faq-a">
-        Sim. O plano mínimo é o <strong>Unlimited</strong>. No plano gratuito, algumas funcionalidades dos templates — como Custom Fields, Task Types e quantidade de Spaces — ficam limitadas e a estrutura não funciona como foi projetada.
-      </div>
+      <button class="faq-q">Preciso de algum plano específico no ClickUp?<span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span></button>
+      <div class="faq-a">Sim. O plano mínimo é o <strong>Unlimited</strong>. No plano gratuito, Custom Fields, Task Types e quantidade de Spaces ficam limitados e a estrutura não funciona como foi projetada.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-q">
-        Preciso usar todos os 7 Spaces de uma vez?
-        <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
-      </button>
-      <div class="faq-a">
-        Não. O Axis foi construído pra uma operação madura — você não precisa (e não deveria) implantar tudo de uma vez. Comece pelos Spaces que resolvem sua maior dor hoje e expanda conforme o negócio cresce. Dependendo do seu modelo de negócio, a ordem recomendada muda — use o assistente de IA acima pra saber por onde começar.
-      </div>
+      <button class="faq-q">Preciso usar todos os 7 Spaces de uma vez?<span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span></button>
+      <div class="faq-a">Não. Comece pelos Spaces que resolvem sua maior dor hoje e expanda conforme o negócio cresce. Use o assistente acima pra saber por onde começar no seu modelo de negócio.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-q">
-        Por onde começo se sou agência?
-        <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
-      </button>
-      <div class="faq-a">
-        Para agências, a ordem recomendada é: <strong>Comercial → Marketing → Projetos</strong>. O Space de Marketing é onde a entrega ao cliente acontece — execução de serviços, campanhas, conteúdo, tráfego. Só depois de ter esses rodando você vai precisar dos demais.
-      </div>
+      <button class="faq-q">Por onde começo se sou agência?<span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span></button>
+      <div class="faq-a"><strong>Comercial → Marketing → Projetos.</strong> O Space de Marketing é onde a entrega ao cliente acontece — execução de serviços, campanhas, conteúdo, tráfego.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-q">
-        Por onde começo se sou infoprodutor?
-        <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
-      </button>
-      <div class="faq-a">
-        Para infoprodutores e criadores digitais: <strong>Produtos → Marketing → Comercial</strong>. O Space de Produtos é o coração da operação — lançamentos, desenvolvimento, backlog e qualidade. Marketing entra logo depois pra suportar a aquisição.
-      </div>
+      <button class="faq-q">Por onde começo se sou infoprodutor?<span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span></button>
+      <div class="faq-a"><strong>Produtos → Marketing → Comercial.</strong> O Space de Produtos é o coração da operação — lançamentos, desenvolvimento, backlog e qualidade.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-q">
-        Por onde começo se sou consultoria ou prestador de serviço?
-        <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
-      </button>
-      <div class="faq-a">
-        Para consultorias e prestadores de serviço: <strong>Comercial → Projetos → Produtos</strong>. O pipeline de vendas e a gestão de projetos são o núcleo — sem esses dois rodando bem, o resto é acessório.
-      </div>
+      <button class="faq-q">Por onde começo se sou consultoria ou prestador de serviço?<span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span></button>
+      <div class="faq-a"><strong>Comercial → Projetos → Produtos.</strong> O pipeline de vendas e a gestão de projetos são o núcleo.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-q">
-        O que faço com as tarefas de exemplo que já vêm nos templates?
-        <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
-      </button>
-      <div class="faq-a">
-        Você pode deletar tudo antes de começar, ou usar como referência de como preencher cada campo. Não tem certo ou errado — depende do seu estilo. O que importa é a estrutura, não as tarefas de exemplo.
-      </div>
+      <button class="faq-q">O que faço com as tarefas de exemplo?<span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span></button>
+      <div class="faq-a">Pode deletar tudo antes de começar, ou usar como referência de como preencher cada campo. O que importa é a estrutura, não as tarefas de exemplo.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-q">
-        Como o Space de Projetos funciona junto com os outros?
-        <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
-      </button>
-      <div class="faq-a">
-        O Space de Projetos não é onde você executa — é onde você coordena. As tarefas de execução ficam no Space onde o processo acontece: design fica no Marketing, tarefas comerciais ficam no Comercial. No Projetos ficam a visão geral, as reuniões e o status macro do projeto.
-      </div>
+      <button class="faq-q">Como o Space de Projetos funciona junto com os outros?<span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span></button>
+      <div class="faq-a">Projetos é coordenação, não execução. As tarefas ficam no Space onde o processo acontece: design no Marketing, tarefas comerciais no Comercial. No Projetos ficam visão geral, reuniões e status macro.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-q">
-        Como o CRM do Comercial funciona?
-        <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
-      </button>
-      <div class="faq-a">
-        Cada lista dentro do Folder Funis representa um canal de entrada de lead diferente — quem veio pela isca gratuita fica numa lista, quem aplicou direto fica em outra. Dentro de cada lista, cada lead é uma tarefa com Task Type <code>lead</code>. Os status da lista representam as etapas do funil daquele canal.
-      </div>
+      <button class="faq-q">Como o CRM do Comercial funciona?<span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span></button>
+      <div class="faq-a">Cada lista dentro do Folder Funis é um canal de entrada diferente. Dentro de cada lista, cada lead é uma tarefa com Task Type <code>lead</code>. Os status representam as etapas do funil daquele canal.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-q">
-        Preciso usar todos os Folders dentro de cada Space?
-        <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
-      </button>
-      <div class="faq-a">
-        Não. Dentro de cada Space, use só os Folders e Listas que fazem sentido pro seu momento. Se você não tem time ainda, o Space de Pessoas pode ficar parado por meses — tudo bem. A estrutura está lá pra quando você precisar.
-      </div>
+      <button class="faq-q">Preciso usar todos os Folders dentro de cada Space?<span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span></button>
+      <div class="faq-a">Não. Use só os Folders e Listas que fazem sentido pro seu momento. A estrutura está lá pra quando você precisar.</div>
     </div>
-
   </div>
 
   <div class="divider"></div>
-
-  <footer class="footer">
-    Axis é um produto da Amplio · Criado por Alícia
-  </footer>
-
+  <footer class="footer">Axis é um produto da Amplio · Criado por Alícia</footer>
 </div>
 
 <script>
-// Prompt completo do Axis pra enviar pro Claude
-const AXIS_PROMPT = `Olá! Sou comprador do Axis, o pacote de templates de ClickUp da Amplio (criado por Alícia). Preciso de ajuda com a implementação.
+const history = [];
+let isLoading = false;
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+const sendBtn = document.getElementById('sendBtn');
 
-Contexto do produto:
-- O Axis tem 7 Spaces (departamentos): Produtos, Projetos, Administrativo, Marketing, Comercial, Gestão Interna e Pessoas
-- A lógica é: Space = departamento, Folder = setor, Lista = área de processo
-- Para agências: começar por Comercial → Marketing → Projetos
-- Para infoprodutores: começar por Produtos → Marketing → Comercial  
-- Para consultorias/serviços: começar por Comercial → Projetos → Produtos
-- O Space de Marketing em agências é onde a entrega ao cliente acontece
-- O Space de Projetos é para coordenação — as tarefas de execução ficam nos outros Spaces
-- O CRM do Comercial usa uma lista por canal de funil, com Task Type de lead
-- Os templates são importados via link direto do ClickUp (não por arquivo)
-- Plano mínimo necessário: Unlimited
+function addMessage(role, text) {
+  const div = document.createElement('div');
+  div.className = 'chat-msg ' + role;
+  div.textContent = text;
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+  return div;
+}
 
-Por favor me ajude com dúvidas técnicas e operacionais de implementação. Se minha dúvida for estratégica (decisões de negócio, personalização profunda), me avise que preciso de consultoria especializada.
+function formatText(text) {
+  return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+}
 
-Minha dúvida é:`;
+async function sendMessage() {
+  const text = chatInput.value.trim();
+  if (!text || isLoading) return;
+  isLoading = true;
+  sendBtn.disabled = true;
+  chatInput.value = '';
+  chatInput.style.height = 'auto';
+  addMessage('user', text);
+  history.push({ role: 'user', content: text });
+  const typing = addMessage('typing', 'pensando...');
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: history }),
+    });
+    const data = await res.json();
+    typing.remove();
+    const reply = data.content?.[0]?.text || 'Não consegui processar. Tente novamente.';
+    history.push({ role: 'assistant', content: reply });
+    const div = document.createElement('div');
+    div.className = 'chat-msg assistant';
+    div.innerHTML = formatText(reply);
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  } catch (err) {
+    typing.remove();
+    addMessage('assistant', 'Erro de conexão. Tente novamente.');
+  }
+  isLoading = false;
+  sendBtn.disabled = false;
+  chatInput.focus();
+}
 
-document.getElementById('openClaude').addEventListener('click', () => {
-  const encoded = encodeURIComponent(AXIS_PROMPT);
-  const url = `https://claude.ai/new?q=${encoded}`;
-  window.open(url, '_blank');
+chatInput.addEventListener('input', () => {
+  chatInput.style.height = 'auto';
+  chatInput.style.height = Math.min(chatInput.scrollHeight, 100) + 'px';
 });
 
-// FAQ accordion
+chatInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+});
+
+sendBtn.addEventListener('click', sendMessage);
+
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const div = document.createElement('div');
+    div.className = 'chat-msg assistant';
+    div.innerHTML = 'Olá! Sou a assistente do Axis. Qual é o seu tipo de negócio?<br><br><strong>Agência · Infoprodutor · Consultoria · Outro</strong><br><br>Com isso já te digo por onde começar.';
+    chatMessages.appendChild(div);
+  }, 300);
+});
+
 document.getElementById('faqList').addEventListener('click', (e) => {
   const btn = e.target.closest('.faq-q');
   if (!btn) return;
